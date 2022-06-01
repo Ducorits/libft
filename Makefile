@@ -57,8 +57,7 @@ compstart:
 	@printf "\n"
 
 compdone:
-	@if test -f $(COMP)
-	printf "$(SAVE)\033[1A$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n$(RESTORE)" "Done!" ""
+	@printf "$(SAVE)\033[1A$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n$(RESTORE)" "Done!" ""
 
 done:
 	@printf "$(BEGIN)$(CYAN)-------< $(ORANGE)Done $(CYAN)>-------\n"
@@ -67,11 +66,11 @@ obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 	@printf "$(SAVE)\033[1A$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)$(RESTORE)" "$^" ""
-	$(eval COMP += $@)
+	@$(eval COMP += $@)
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
-	@ar rs $(NAME) $(COMP)
+	@ar rs $(NAME) $(OBJS)
 
 clean:
 	@rm -rf obj
