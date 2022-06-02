@@ -13,7 +13,7 @@ SAVE = \0337
 RESTORE = \0338
 INSET = $(BEGIN)$(GREEN)+ $(BLUE)
 
-SRCS =	$(SRC_ASCII) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PUT) $(SRC_STR)
+SRCS =	$(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PUT) $(SRC_STR)
 
 SRC_ASCII =	ascii/ft_isalnum.c		ascii/ft_isalpha.c		ascii/ft_isascii.c		ascii/ft_isdigit.c \
 			ascii/ft_isprint.c		ascii/ft_tolower.c		ascii/ft_toupper.c \
@@ -46,26 +46,27 @@ OBJS = $(patsubst %.c, obj/%.o, $(SRCS))
 
 all: heading comp
 
-.PHONY: comp heading compstart compdone done clean fclean re
+.PHONY: heading comp compdone done clean fclean re
 
-comp: compstart $(OBJS) compdone $(NAME) done
+comp: $(OBJS) compdone $(NAME) done
 
 heading:
-	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"
+	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"; \
 
-compstart:
-	@printf "\n"
+
 
 compdone:
-	@printf "$(SAVE)\033[1A$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n$(RESTORE)" "Done!" ""
+	@printf "$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "Done!" ""; \
+
 
 done:
-	@printf "$(BEGIN)$(CYAN)-------< $(ORANGE)Done $(CYAN)>-------\n"
+	@printf "$(BEGIN)$(CYAN)-------< $(ORANGE)Done $(CYAN)>-------\n$(RESET)"; \
+
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
-	@printf "$(SAVE)\033[1A$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)$(RESTORE)" "$^" ""
+	@printf "$(INSET)$(BLUE)Compiling - $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
 	@$(eval COMP += $@)
 
 $(NAME): $(OBJS)
