@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 15:35:06 by dritsema      #+#    #+#                 */
-/*   Updated: 2021/11/02 12:43:28 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/08 01:15:55 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ static void	freeit(char **str_arr, int i)
 	free(str_arr);
 }
 
+/**
+ * @brief Allocates and returns an array of strings obtained
+ * by splitting ’s’ using the character ’c’ as a delimiter.
+ * The array must end with a NULL pointer.
+ *
+ * @param s The string to be split.
+ * @param c The delimiter character.
+ * @return The array of new strings resulting from the split.
+ * NULL if the allocation fails.
+ */
 char	**ft_split(char const *s, char c)
 {
 	int		count;

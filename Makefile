@@ -16,9 +16,9 @@ INSET = $(BEGIN)$(GREEN)+ $(BLUE)
 SRCS =	$(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PUT) $(SRC_STR)
 
 SRC_ASCII =	ascii/ft_isalnum.c		ascii/ft_isalpha.c		ascii/ft_isascii.c		ascii/ft_isdigit.c \
-			ascii/ft_isprint.c		ascii/ft_tolower.c		ascii/ft_toupper.c \
+			ascii/ft_isprint.c		ascii/ft_iswhitespace.c
 
-SRC_CONVERT = convert/ft_atoi.c		convert/ft_itoa.c
+SRC_CONVERT = convert/ft_atoi.c		convert/ft_itoa.c 		convert/ft_tolower.c	convert/ft_toupper.c
 
 SRC_GNL =	gnl/get_next_line.c		gnl/get_next_line_utils.c
 

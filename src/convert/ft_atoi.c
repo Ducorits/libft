@@ -6,12 +6,19 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/14 19:25:23 by dritsema      #+#    #+#                 */
-/*   Updated: 2021/11/02 11:39:12 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/07 18:15:13 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief The atoi() function converts the initial portion of the
+ * string pointed to by str to int representation.
+ *
+ * @param str The string to convert.
+ * @return The converted integer value.
+ */
 int	ft_atoi(const char *str)
 {
 	unsigned int	n;
@@ -25,7 +32,7 @@ int	ft_atoi(const char *str)
 		mins = -1;
 	if (*str == '-' || *str == '+')
 		str++;
-	while (ft_isdigit(*str))
+	while (*str >= '0' && *str <= '9')
 	{
 		n = n * 10 + (*str - 48);
 		str++;

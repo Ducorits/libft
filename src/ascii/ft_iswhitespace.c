@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_iswhitespace.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: dritsema <marvin@codam.nl>                   +#+                     */
+/*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/05 18:37:42 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/06/07 23:32:45 by dritsema      ########   odam.nl         */
+/*   Created: 2022/06/07 12:51:20 by dritsema      #+#    #+#                 */
+/*   Updated: 2022/06/07 23:35:51 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @brief Tests for a decimal digit character.
+ * @brief Tests for whitespace characters.
  *
  * @param c The character to test.
- * @return 1 if 'c' is a decimal digit character, 0 otherwise.
+ * @return 1 if 'c' is a whitespace character, 0 otherwise.
  */
-int	ft_isdigit(int c)
+int	ft_iswhitespace(char c)
 {
-	return (c >= 48 && c <= 57);
+	return (c == ' ' || c == '\t' || c == '\r' || c == '\n'
+		|| c == '\v' || c == '\f');
 }

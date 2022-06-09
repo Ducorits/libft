@@ -6,12 +6,20 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/23 11:50:47 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/05/26 19:20:38 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/08 12:56:43 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Applies the function ’f’ on each character of the string 's',
+ * passing its index as first argument.
+ * Each character is passed by address to ’f’ to be modified if necessary.
+ *
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character.
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	slen;

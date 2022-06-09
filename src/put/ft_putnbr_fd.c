@@ -6,22 +6,29 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/23 15:57:11 by dritsema      #+#    #+#                 */
-/*   Updated: 2021/10/23 16:13:23 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/07 16:26:18 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 static void	recurse(unsigned int n, int fd)
 {
 	if (n > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
+		recurse(n / 10, fd);
 	}
 	n = n % 10 + 48;
 	write(fd, &n, 1);
 }
 
+/**
+ * @brief Outputs the integer ’n’ to the given file descriptor.
+ *
+ * @param n The integer to output.
+ * @param fd The file descriptor on which to write.
+ */
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	ncpy;

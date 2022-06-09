@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                     :+:    :+:           */
+/*   get_next_line.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/31 14:09:08 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/01/11 15:24:04 by alkrusts        ########   odam.nl       */
+/*   Updated: 2022/06/07 23:55:21 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
-#include <stdio.h>
-
+/**
+ * @brief Returns a line read from a
+ * file descriptor.
+ *
+ * @param fd File descriptor to read from.
+ * @return Newly allocated string containing the next line.
+ */
 char	*get_next_line(int fd)
 {
 	static t_buf	r_buf;

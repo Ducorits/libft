@@ -6,11 +6,12 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/21 15:12:08 by dritsema      #+#    #+#                 */
-/*   Updated: 2021/10/21 17:11:38 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/07 23:39:04 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	asize(int n)
 {
@@ -37,6 +38,14 @@ static char	*fill_str(char *str, unsigned int n, int len)
 	return (str);
 }
 
+/**
+ * @brief Allocates and returns a string representing the
+ * integer received as an argument.
+ *
+ * @param n The integer to convert.
+ * @return The string representing the integer.
+ * NULL if the allocation fails.
+ */
 char	*ft_itoa(int n)
 {
 	char			*str;
@@ -45,8 +54,8 @@ char	*ft_itoa(int n)
 
 	len = asize(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
+	if (str == 0)
+		return (0);
 	if (n < 0)
 	{
 		ncpy = n * -1;
