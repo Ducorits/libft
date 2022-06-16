@@ -52,7 +52,7 @@ all: heading comp
 
 .PHONY: heading comp clean fclean re
 
-comp: $(OBJS) $(NAME)
+comp: $(NAME)
 
 heading:
 	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"; \
