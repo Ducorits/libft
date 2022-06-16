@@ -48,28 +48,19 @@ NAME	= libft.a
 
 OBJS	= $(patsubst %.c, obj/%.o, $(SRCS))
 
-ifneq ($(OBJS), $(patsubst %, %, $(wildcard obj/*/*)))
 all: heading comp
-else
-all: heading
-	@printf "$(INSET)$(BLUE)Is up to date\n"
-endif
 
-.PHONY: heading comp compdone clean fclean re
+.PHONY: heading comp clean fclean re
 
-comp: $(OBJS) compdone $(NAME)
+comp: $(OBJS) $(NAME)
 
 heading:
 	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"; \
-
-compdone:
-	@printf "$(INSET)$(BLUE)Compiling: $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "Done!" ""; \
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 	@printf "$(INSET)$(BLUE)Compiling: $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
-	@$(eval COMP += $@)
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
