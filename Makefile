@@ -13,7 +13,7 @@ SAVE = \0337
 RESTORE = \0338
 INSET = $(BEGIN)$(GREEN)+ $(BLUE)
 
-SRCS =	$(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PUT) $(SRC_STR)
+SRCS =	$(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR)
 
 SRC_ASCII =	ascii/ft_isalnum.c		ascii/ft_isalpha.c		ascii/ft_isascii.c		ascii/ft_isdigit.c \
 			ascii/ft_isprint.c		ascii/ft_iswhitespace.c
@@ -28,6 +28,9 @@ SRC_LST =	lst/ft_lstadd_back.c	lst/ft_lstadd_front.c	lst/ft_lstclear.c \
 
 SRC_MEM =	mem/ft_bzero.c			mem/ft_calloc.c			mem/ft_memchr.c			mem/ft_memcmp.c \
 			mem/ft_memcpy.c			mem/ft_memmove.c		mem/ft_memset.c
+
+SRC_PRINTF =	printf/ft_printchar.c	printf/ft_printf.c	printf/ft_printhex.c	printf/ft_printnbr.c \
+				printf/ft_printstr.c	printf/ft_printun.c	printf/ft_upprinthex.c
 
 SRC_PUT =	put/ft_putchar_fd.c		put/ft_putendl_fd.c		put/ft_putnbr_fd.c		put/ft_putstr_fd.c
 

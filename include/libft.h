@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 12:51:11 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/06/14 13:33:09 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/16 13:56:46 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,13 @@ char	*ft_strtrim(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+// get_next_line
+
+char	*get_next_line(int fd);
+
+// ft_printf
+
+int		ft_printf(const char *s, ...);
 
 #endif /* LIBFT_H */
