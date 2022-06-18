@@ -64,7 +64,7 @@ obj/%.o: src/%.c
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
-	@ar rs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean: heading
 	@rm -rf obj
