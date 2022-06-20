@@ -6,11 +6,10 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/21 15:12:08 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/06/07 23:39:04 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/20 13:30:03 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 
 static int	asize(int n)
