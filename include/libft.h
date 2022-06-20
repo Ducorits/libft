@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 12:51:11 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/06/20 13:55:27 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/20 16:17:26 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,6 +295,15 @@ char	*ft_strdup(const char *s1);
  * @param s The string on which to iterate.
  * @param f The function to apply to each character. */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+/**
+ * @brief Allocates and returns a new string,
+ * which is the result of the concatenation of ’s1’ and ’s2’.
+ * Frees 's1' before returning.
+ * @param s1 The prefix string.
+ * @param s2 The suffix string.
+ * @return The new string. NULL if the allocation fails.
+ */
+char	*ft_strjoin_free(char *s1, char const *s2);
 /**
  * @brief Allocates and returns a new string,
  * which is the result of the concatenation of ’s1’ and ’s2’.
