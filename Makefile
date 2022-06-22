@@ -16,6 +16,8 @@ INSET	= $(BEGIN)$(GREEN)+ $(BLUE)
 
 SRCS	=	$(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR)
 
+SRC_ARRAY	=	array/ft_2darlen.c
+
 SRC_ASCII	=	ascii/ft_isalnum.c \
 				ascii/ft_isalpha.c \
 				ascii/ft_isascii.c \
