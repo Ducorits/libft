@@ -14,7 +14,7 @@ SAVE	= \0337
 RESTORE	= \0338
 INSET	= $(BEGIN)$(GREEN)+ $(BLUE)
 
-SRCS	=	$(SRC_ARRAY) $(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR)
+SRCS	=	$(SRC_ARRAY) $(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_MISC) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR)
 
 SRC_ARRAY	=	array/ft_2darlen.c
 
@@ -51,6 +51,8 @@ SRC_MEM		=	mem/ft_bzero.c \
 				mem/ft_memmove.c \
 				mem/ft_memset.c
 
+SRC_MISC	=	misc/ft_numlen.c
+
 SRC_PRINTF	=	printf/ft_printchar.c \
 				printf/ft_printf.c \
 				printf/ft_printhex.c \
@@ -82,7 +84,11 @@ SRC_STR		=	str/ft_split.c \
 
 INC		=	-I ./include
 
+ifeq ($(TESTFLAGS), 1)
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
+else
 CFLAGS	= -Wall -Wextra -Werror
+endif
 
 NAME	= libft.a
 
