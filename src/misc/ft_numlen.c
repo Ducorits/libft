@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/28 14:54:58 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/06/28 16:29:48 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/06/28 16:34:05 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	ft_numlen(int num)
 {
 	int	len;
 
-	len = 1;
+	len = 0;
+	if (num == 0)
+		return (1);
 	if (num < 0)
 		len++;
 	while (num != 0)
