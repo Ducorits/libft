@@ -82,7 +82,13 @@ SRC_STR		=	str/ft_split.c \
 				str/ft_strtrim.c \
 				str/ft_substr.c
 
-INC		=	-I ./include
+INC			=	-I ./include
+
+COMPILED	=	0
+
+DONE_OBJS	=	$(wildcard obj/*.o)
+
+TO_COMPILE	=	$(words $(filter-out $(DONE_OBJS), $(OBJS)))
 
 ifeq ($(TESTFLAGS), 1)
 CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
@@ -94,19 +100,26 @@ NAME	= libft.a
 
 OBJS	= $(patsubst %.c, obj/%.o, $(SRCS))
 
-all: heading comp
+all: heading status comp
 
-.PHONY: heading comp clean fclean re
+.PHONY: heading status comp clean fclean re
 
 comp: $(NAME)
 
 heading:
-	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"; \
+	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n"
+
+status:
+ifneq ($(filter $(OBJS), $(wildcard obj/*/*.o)),)
+	@printf "$(INSET)Nothing to be done.\n"
+endif
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
-	@printf "$(INSET)$(BLUE)Compiling: $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
+	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
+	@printf "$(INSET)$(GREEN)[$(shell echo $$(($(COMPILED)*100/$(TO_COMPILE)))%%)] "
+	@printf "$(BLUE)Compiling: $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
