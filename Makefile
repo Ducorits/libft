@@ -14,7 +14,9 @@ SAVE	= \0337
 RESTORE	= \0338
 INSET	= $(BEGIN)$(GREEN)+ $(BLUE)
 
-SRCS	=	$(SRC_ARRAY) $(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL) $(SRC_LST) $(SRC_MEM) $(SRC_MISC) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR)
+SRCS	=	$(SRC_ARRAY) $(SRC_ASCII) $(SRC_CONVERT) $(SRC_GNL)\
+			$(SRC_LST) $(SRC_MEM) $(SRC_MISC) $(SRC_PRINTF)\
+			$(SRC_PUT) $(SRC_STR)
 
 SRC_ARRAY	=	array/ft_2darlen.c
 
@@ -90,6 +92,9 @@ DONE_OBJS	=	$(wildcard obj/*.o)
 
 TO_COMPILE	=	$(words $(filter-out $(DONE_OBJS), $(OBJS)))
 
+PERCENT		=	$(INSET)$(GREEN)[$(shell echo \
+				$$(($(COMPILED)*100/$(TO_COMPILE)))%%)]
+
 ifeq ($(TESTFLAGS), 1)
 CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
 else
@@ -118,8 +123,8 @@ obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
-	@printf "$(INSET)$(GREEN)[$(shell echo $$(($(COMPILED)*100/$(TO_COMPILE)))%%)] "
-	@printf "$(BLUE)Compiling: $(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
+	@printf "$(PERCENT) $(BLUE)Compiling: \
+	$(GREEN)%-29s $(CYAN)%-10s$(RESET)\n" "$^" ""
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
