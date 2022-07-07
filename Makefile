@@ -92,8 +92,8 @@ DONE_OBJS	=	$(wildcard obj/*.o)
 
 TO_COMPILE	=	$(words $(filter-out $(DONE_OBJS), $(OBJS)))
 
-PERCENT		=	$(INSET)$(GREEN)[$(shell echo \
-				$$(($(COMPILED)*100/$(TO_COMPILE)))%%)]
+PERCENT		=	$(INSET)$(CYAN)$(shell echo \
+				$$(($(COMPILED)*100/$(TO_COMPILE)))%%)
 
 ifeq ($(TESTFLAGS), 1)
 CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
