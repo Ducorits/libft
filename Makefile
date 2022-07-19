@@ -53,7 +53,8 @@ SRC_MEM		=	mem/ft_bzero.c \
 				mem/ft_memmove.c \
 				mem/ft_memset.c
 
-SRC_MISC	=	misc/ft_numlen.c
+SRC_MISC	=	misc/ft_abs.c \
+				misc/ft_numlen.c
 
 SRC_PRINTF	=	printf/ft_printchar.c \
 				printf/ft_printf.c \

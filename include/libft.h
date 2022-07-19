@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 12:51:11 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/07/19 14:24:37 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/07/19 14:47:50 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,8 @@ t_list			*ft_lstlast(t_list *lst);
  * the content of a node if needed.
  * @return The new list.
  * NULL if the allocation fails. */
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 /**
  * @brief Allocates and returns a new node.
  * The member variable ’content’ is initialized with
