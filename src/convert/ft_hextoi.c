@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/11 15:16:08 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/08/11 15:37:25 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/08/11 17:35:17 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ int	ft_hextoi(const char *str)
 		mins = -1;
 	if (*str == '-' || *str == '+')
 		str++;
-	if (*str == '0' && (*str + 1 == 'x' || *str + 1 == 'X'))
+	if (*str == '0' && (*(str + 1) == 'x' || *(str + 1) == 'X'))
 		str += 2;
 	while ((*str >= '0' && *str <= '9') || (*str >= 'A' && *str <= 'F')
 		|| (*str >= 'a' && *str <= 'f'))
 	{
 		if (*str >= '0' && *str <= '9')
-			n = n * 16 + (*str - 48);
+			n = n * 16 + (0 + *str - 48);
 		if (*str >= 'A' && *str <= 'F')
-			n = n * 16 + (*str - 65);
+			n = n * 16 + (10 + *str - 65);
 		if (*str >= 'a' && *str <= 'f')
-			n = n * 16 + (*str - 97);
+			n = n * 16 + (10 + *str - 97);
 		str++;
 	}
 	return ((int)(n * mins));
