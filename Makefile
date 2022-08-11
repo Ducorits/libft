@@ -28,6 +28,7 @@ SRC_ASCII	=	ascii/ft_isalnum.c \
 				ascii/ft_iswhitespace.c
 
 SRC_CONVERT	=	convert/ft_atoi.c \
+				convert/ft_hextoi.c \
 				convert/ft_itoa.c \
 				convert/ft_tolower.c \
 				convert/ft_toupper.c
