@@ -6,7 +6,7 @@
 /*   By: dritsema <dritsema@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 12:51:11 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/08/11 15:22:51 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/08/11 15:36:32 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int				ft_iswhitespace(char c);
 int				ft_atoi(const char *str);
 /**
  * @brief The ft_hextoi() function converts the initial portion of the
- * string hexadecimal pointed to by str to int representation.
+ * string pointed to by str, if its hexadecimal, to int representation.
+ * Works for "0xFF" and "FF" formats.
  * @param str The string to convert.
  * @return The converted integer value. */
 int				ft_hextoi(const char *str);
