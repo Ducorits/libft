@@ -6,7 +6,7 @@
 /*   By: dritsema <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/06 16:48:26 by dritsema      #+#    #+#                 */
-/*   Updated: 2022/09/06 21:12:00 by dritsema      ########   odam.nl         */
+/*   Updated: 2022/09/07 20:30:40 by dritsema      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	if (s)
-		while (s[i])
-			i++;
+	while (s[i])
+		i++;
 	return (i);
 }
