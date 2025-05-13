@@ -8,7 +8,8 @@ CYAN	= \033[1;36m
 ORANGE	= \033[1;38;5;214m
 GREEN	= \033[1;32m
 RESET	= \033[0m
-UP1		= \033[1F
+UP1		= \033[1A
+DOWN	= \033[1B
 BEGIN	= \033[0G
 SAVE	= \0337
 RESTORE	= \0338
@@ -116,7 +117,7 @@ all: heading status comp
 comp: $(NAME)
 
 heading:
-	@printf "$(CYAN)---< $(ORANGE)Duco's libft $(CYAN)>---\n$(RESET)"
+	@printf "$(CYAN)-----< $(ORANGE)libft $(CYAN)>-----\n$(RESET)"
 
 status:
 ifneq ($(filter $(OBJS), $(wildcard obj/*/*.o)),)
@@ -125,14 +126,14 @@ endif
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $^ -o $@
-	@printf "$(PERCENT) $(BLUE)Compiling: $(GREEN)%s$(RESET)\n" "$^"
+	@printf "$(PERCENT) $(BLUE)$(RESET)"
+	$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
 	@ar rcs $(NAME) $(OBJS)
-	@printf "$(ORANGE)Created archive.\n$(RESET)"
+	@printf "$(ORANGE)Created $(NAME)\n$(RESET)"
 
 clean: heading
 	@rm -rf obj
@@ -140,6 +141,6 @@ clean: heading
 
 fclean: clean
 	@rm -f libft.a
-	@printf "$(RED)- $(BLUE)Removed archive file\n$(RESET)"
+	@printf "$(RED)- $(BLUE)Removed $(NAME)\n$(RESET)"
 
 re: fclean comp
