@@ -97,8 +97,8 @@ DONE_OBJS	=	$(wildcard obj/*.o)
 
 TO_COMPILE	=	$(words $(filter-out $(DONE_OBJS), $(OBJS)))
 
-PERCENT		=	$(INSET)$(CYAN)$(shell echo \
-				$$(($(COMPILED)*100/$(TO_COMPILE)))%%)
+PERCENT		=	$(shell echo \
+				$$(($(COMPILED)*100/$(TO_COMPILE)))%)
 
 ifeq ($(TESTFLAGS), 1)
 CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
@@ -121,14 +121,14 @@ heading:
 
 status:
 ifneq ($(filter $(OBJS), $(wildcard obj/*/*.o)),)
-	@printf "$(INSET)Nothing to be done.\n$(RESET)"
+	@printf "$(BLUE)Nothing to be done.\n$(RESET)"
 endif
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
-	@printf "$(PERCENT) $(BLUE)$(RESET)"
-	$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
+	@printf "$(INSET)$(CYAN)%4s  $(RESET)" "$(PERCENT)"
+	$(CC) $(CFLAGS) $(INC) -c $^ -o $@
 
 $(NAME): $(OBJS)
 	@printf "$(INSET)"
